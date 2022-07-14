@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
+import Appo from './Pages/Dashbord/Appo';
+import Dashbord from './Pages/Dashbord/Dashbord';
+import Navbar from './Pages/Home/Navbar';
+import User from './Pages/Dashbord/User';
+import { privetRoute } from './Pages/Route/PrivetRoute';
+import publicRoute from './Pages/Route/PublicRoute';
+import Footer from './Pages/Shared/Footer';
+import RequireAuth from './Pages/Shared/RequireAuth';
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='ml-5 mr-5'>
+      <Navbar></Navbar>
+      <Routes>
+        {
+          publicRoute.map((route , index) =>(
+            <Route key={index} path={route.path} element={<route.Componemt />}></Route>
+          )
+          )
+        }
+        {
+          privetRoute.map((route , index) =>(
+            <Route key={index} path={route.path} element={
+              <RequireAuth>
+                <route.Component></route.Component>
+              </RequireAuth>
+            }></Route>
+          ))
+        }
+        <Route path='Dashbord' element={<Dashbord></Dashbord>}>
+          <Route path="Appo" element={<Appo></Appo>}></Route>
+          <Route path="User" element={<User></User>}></Route>
+        </Route>
+      </Routes>
+      <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }
