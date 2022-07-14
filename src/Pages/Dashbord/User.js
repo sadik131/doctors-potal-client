@@ -16,7 +16,7 @@ const User = () => {
             return res.json()
         })
         .then(data => {
-            setUser(data);
+            setUser(data)
         })
     },[])
 
