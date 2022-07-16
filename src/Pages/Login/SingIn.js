@@ -39,7 +39,6 @@ const SingIn = () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const { register, formState: { errors }, handleSubmit } = useForm();
     const onSubmit = async (data) => {
-        // console.log(data)
         await createUserWithEmailAndPassword(data.email , data.Password)
         await updateProfile( {displayName : data.name} );
     }

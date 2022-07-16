@@ -12,25 +12,25 @@ const User = () => {
             }
         })
         .then(res =>{
-            console.log(res);
+            
             return res.json()
         })
         .then(data => {
             setUser(data)
         })
-    },[])
+    },[users])
 
     return (
         <div>
-            <h1 className="text-2xl">My Appointment</h1>
+            <h1 className="text-2xl">Our Users</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
                             <th>Email</th>
-                            <th>Job</th>
-                            <th>Favorite Color</th>
+                            <th>Make Admin</th>
+                            <th>Delete User</th>
                         </tr>
                     </thead>
                     <tbody>
