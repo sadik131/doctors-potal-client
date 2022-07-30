@@ -9,7 +9,7 @@ const useToken = user =>{
     useEffect( () =>{
         const current = {email : email}
         if(email){
-            fetch(`http://localhost:5000/users/${email}` ,{
+            fetch(`https://damp-brushlands-02493.herokuapp.com/users/${email}` ,{
                 method:"POST",
                 headers:{
                    "Content-type": "application/json"

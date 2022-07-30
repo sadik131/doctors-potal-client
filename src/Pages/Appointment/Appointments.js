@@ -8,7 +8,7 @@ const Appointments = ({value}) => {
     const [datas, useDatas] = useState([])
     const [tritment, setTritment] = useState()
     useEffect(() => {
-        fetch('http://localhost:5000/sarvises')
+        fetch('https://damp-brushlands-02493.herokuapp.com/sarvises')
             .then(res => res.json())
             // eslint-disable-next-line react-hooks/rules-of-hooks
             .then(data => useDatas(data))

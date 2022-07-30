@@ -10,7 +10,7 @@ const Appo = () => {
 
     useEffect( () =>{
         if(user){
-            fetch(`http://localhost:5000/booking?patients=${user.email}`)
+            fetch(`https://damp-brushlands-02493.herokuapp.com/booking?patients=${user.email}`)
             .then(res =>res.json())
             .then(data =>{
                 setPatient(data);

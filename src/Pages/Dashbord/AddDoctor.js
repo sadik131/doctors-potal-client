@@ -11,14 +11,9 @@ const AddDoctor = () => {
     const imgbbKey="368c33814be9653fe3277b819a7b9bc8";
     const url = `https://api.imgbb.com/1/upload?key=${imgbbKey}`
 
-    // const [data , isLoading] = useQuery("sarvis" , () =>fetch('http://localhost:5000/Sname').then(res =>res.json()))
-
-    // if(isLoading){
-    //     return <Loading></Loading>
-    // }
     const [sarvise, setSarvise] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/Sname')
+        fetch('https://damp-brushlands-02493.herokuapp.com/Sname')
             .then(res => res.json())
             .then(data => setSarvise(data))
     }, [])
@@ -43,7 +38,7 @@ const AddDoctor = () => {
                     email:data.email,
                     speciality:data.speciality
                 }
-                fetch('http://localhost:5000/doctors' ,{
+                fetch('https://damp-brushlands-02493.herokuapp.com/doctors' ,{
                     method:"POST",
                     headers:{
                         "content-type":"application/json"

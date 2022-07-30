@@ -2,24 +2,10 @@ import React from 'react';
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
 
-const DoctorRow = ({ doctor, index , refetch}) => {
+const DoctorRow = ({ doctor, index , refetch ,setdeleteDoctor}) => {
     const { name, email, img, speciality } = doctor
 
-    const handelDelete = () =>{
-        fetch(`http://localhost:5000/doctors/${email}`,{
-            method:"DELETE",
-            headers:{
-                "content-type":"application/json"
-            },
-        })
-        .then(res =>res.json())
-        .then(data =>{
-            if(data.deletedCount){
-           toast.success("Doctor Delete SuccessFully")
-            refetch()
-            }
-        })
-    }
+    
     return (
         <tr>
             <th>{index + 1}</th>
@@ -31,7 +17,11 @@ const DoctorRow = ({ doctor, index , refetch}) => {
             <td>{name}</td>
             <td>{email}</td>
             <td>{speciality}</td>
-            <td><button onClick={handelDelete} className="btn btn-xs btn-error">Delete</button>
+            <td>
+            <label
+             onClick={() =>setdeleteDoctor(doctor)} 
+             for="delete-user" 
+             class="btn btn-xs btn-error">Delete</label>
             </td>
         </tr>
     );

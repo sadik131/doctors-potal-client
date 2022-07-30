@@ -19,7 +19,8 @@ const BookingModal = ({ tritment, value ,setTritment}) => {
             tritment: tritment.name,
             date: event.target.date.value
         }
-        fetch('http://localhost:5000/appointment', {
+        fetch('https://damp-brushlands-02493.herokuapp.com/appointment', {
+            
             method: "POST",
             headers: {
                 "content-type": "application/json",

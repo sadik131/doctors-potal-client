@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useQuery } from 'react-query';
 import Loading from '../Shared/Loading';
+import DeleteUser from './DeleteUser';
 import DoctorRow from './DoctorRow';
 
 const ManagDoctor = () => {
+    const [deleteDoctor, setdeleteDoctor] = useState(null)
 
-    const { data , isLoading ,refetch } = useQuery(["doctors"], () => fetch('http://localhost:5000/doctors').then(res => res.json()))
-
+    const { data , isLoading ,refetch } = useQuery(["doctors"], () => fetch('https://damp-brushlands-02493.herokuapp.com/doctors').then(res => res.json()))
+    
     if (isLoading) {
         return <Loading></Loading>
     }
@@ -31,12 +33,16 @@ const ManagDoctor = () => {
                         key={doctor._id}
                         doctor={doctor}
                         index={index}
-                        refetch={refetch}
+                        setdeleteDoctor={setdeleteDoctor}
                         ></DoctorRow>)
                     }
                 </tbody>
             </table>
         </div>
+        {deleteDoctor && <DeleteUser
+        deleteDoctor={deleteDoctor}
+        refetch={refetch}
+        ></DeleteUser>}
         </div>
     );
 };

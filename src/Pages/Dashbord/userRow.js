@@ -5,7 +5,7 @@ import { toast } from 'react-toastify';
 const UserRow = ({ user , index }) => {
     
     const makeAdmin = () =>{    
-            fetch(`http://localhost:5000/users/admin/${user.email}`,{
+            fetch(`https://damp-brushlands-02493.herokuapp.com/users/admin/${user.email}`,{
                 method:"POST",
                 headers: {
                     authorization:`breer ${localStorage.getItem('accessToken')}`

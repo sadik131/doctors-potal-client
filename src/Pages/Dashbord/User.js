@@ -6,7 +6,8 @@ const User = () => {
 
     const [users , setUser] = useState([])
     useEffect( () =>{
-        fetch('http://localhost:5000/user' ,{
+        fetch('https://damp-brushlands-02493.herokuapp.com/user' ,{
+            
             headers:{
                 "authorization":`Breer ${localStorage.getItem("accessToken")}`
             }

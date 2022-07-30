@@ -99,7 +99,7 @@ const SingIn = () => {
                                 <p className='cursor-pointer'>Forget Password</p>
                             </div>
                             <div>
-                                <input className='btn btn-accent w-full' type="submit" value="Login" />
+                                <input className='btn btn-accent w-full' type="submit" value="Signin" />
                                 <small className='text-center'>All ready have an account on doctors potal? <Link to="/Login"><span className='text-secondary'>login</span></Link></small  >
                                 <div className="divider">OR</div>
                                 <button onClick={googleLogin} className='uppercase btn btn-outline w-full'>Continue with google</button>
