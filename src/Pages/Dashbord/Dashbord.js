@@ -4,7 +4,7 @@ import { Link, Outlet } from 'react-router-dom';
 const Dashbord = () => {
     return (
         <div>
-            <div className="drawer drawer-mobile">
+            <div className="drawer drawer-mobiles">
                 <input id="my-drawer" type="checkbox" className="drawer-toggle" />
                 <div className="drawer-content flex flex-col">
                     {/* <!-- Page content here --> */}
